@@ -10,7 +10,7 @@
 
 ### Dataset
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/54031d93-2853-450e-853e-a17a1603cb63/892e91d8-e50f-4f09-9b2f-2180c2279630/Untitled.png)
+<img width="686" alt="bankruptcy_data" src="https://github.com/HaseongJung/Bankrunptcy_Classification/assets/107913513/da3b1752-9112-4acb-bc7a-51cad6e50fe6">
 
 ### PCA
 
@@ -32,11 +32,11 @@
 
 결과는 다음과 같다.
 
-![0: 파산X, 1: 파산O](https://prod-files-secure.s3.us-west-2.amazonaws.com/54031d93-2853-450e-853e-a17a1603cb63/340570dd-c4bc-4fb8-a4bf-7d77a56028c5/Untitled.png)
+<img width="285" alt="result1-1" src="https://github.com/HaseongJung/Bankrunptcy_Classification/assets/107913513/0bd0cacb-f9ad-4887-ba52-98fe005abc67">
 
 0: 파산X, 1: 파산O
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/54031d93-2853-450e-853e-a17a1603cb63/61f4b0f8-80a9-41c9-8486-9e595796391d/Untitled.png)
+<img width="401" alt="result1-2" src="https://github.com/HaseongJung/Bankrunptcy_Classification/assets/107913513/f22dda9e-cbaf-43cf-92a9-017fb62a652c">
 
 accuracy만 보면 모델의 성능이 좋아 보이나, **1에 대한 recall값과 f1-score가 현저히 낮은 것**으로 보아 모델이 **편향적 예측을 하는 것으로 보인다.**
 
@@ -48,17 +48,17 @@ accuracy만 보면 모델의 성능이 좋아 보이나, **1에 대한 recall값
 
 앞서 말했던 데이터의 **Class imbalance** 문제를 해결하기 위하여 **Under-sampling**과 **Over-sampling** 중 **데이터의 손실이 낮은 Over-sampling**기법을 사용하여 해결해보려고 한다. 
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/54031d93-2853-450e-853e-a17a1603cb63/0e73542b-f644-46c6-9ba3-2334eec1613b/Untitled.png)
+<img width="508" alt="over_sampling" src="https://github.com/HaseongJung/Bankrunptcy_Classification/assets/107913513/5d8951d4-836f-422c-ae88-2a67e1f37c81">
 
 SMOTE 알고리즘을 이용하여 Over-sampling한 결과 **Class의 비율을 1:1**로 맞추어 주었다.
 
 이후 class imbalance문제를 해결한 데이터로 다시 학습 및 테스트 결과는 다음과 같다.
 
-![0: 파산X, 1: 파산O](https://prod-files-secure.s3.us-west-2.amazonaws.com/54031d93-2853-450e-853e-a17a1603cb63/74d0e934-4c65-4b79-8983-176d02e4b2ce/Untitled.png)
+<img width="284" alt="result2-1" src="https://github.com/HaseongJung/Bankrunptcy_Classification/assets/107913513/3c3b5cdb-64a7-417d-b3c3-623cb23b056f">
 
 0: 파산X, 1: 파산O
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/54031d93-2853-450e-853e-a17a1603cb63/5cf22277-8b4e-4fca-99fd-9d5ceea30be9/Untitled.png)
+<img width="392" alt="result2-2" src="https://github.com/HaseongJung/Bankrunptcy_Classification/assets/107913513/ecd7217d-251f-4fcd-a83d-aebb926c6dfb">
 
 - 1에 대한 precision: `0.67 → 0.15`
 - 1에 대한 recall: `0.08 → 0.82`
