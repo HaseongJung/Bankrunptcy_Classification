@@ -30,9 +30,13 @@
 
 위에서 선택한 변수들을 독립변수로 설정, 파산여부를 종속변수로 설정하고 학습/테스트 데이터의 비율은 8:2로 설정하여 예측을 진행한다.
 결과는 다음과 같다.
+
 <img width="285" alt="result1-1" src="https://github.com/HaseongJung/Bankrunptcy_Classification/assets/107913513/0bd0cacb-f9ad-4887-ba52-98fe005abc67">
+
 0: 파산X, 1: 파산O
+
 <img width="401" alt="result1-2" src="https://github.com/HaseongJung/Bankrunptcy_Classification/assets/107913513/f22dda9e-cbaf-43cf-92a9-017fb62a652c">
+
 accuracy만 보면 모델의 성능이 좋아 보이나, **1에 대한 recall값과 f1-score가 현저히 낮은 것**으로 보아 모델이 **편향적 예측을 하는 것으로 보인다.**
 이는 기업의 파산여부를 예측하는 목적에 매우 적합하지 않다고 생각된다.
 원인은 파산한 기업(y=1)보다 파산하지 않은 기업(y=0)의 데이터가 월등히 많기 때문이라고 추측된다.
@@ -40,11 +44,16 @@ accuracy만 보면 모델의 성능이 좋아 보이나, **1에 대한 recall값
 ### Calss imbalance 문제 해결 (Over Sampling)
 
 앞서 말했던 데이터의 **Class imbalance** 문제를 해결하기 위하여 **Under-sampling**과 **Over-sampling** 중 **데이터의 손실이 낮은 Over-sampling**기법을 사용하여 해결해보려고 한다. 
+
 <img width="508" alt="over_sampling" src="https://github.com/HaseongJung/Bankrunptcy_Classification/assets/107913513/5d8951d4-836f-422c-ae88-2a67e1f37c81">
+
 SMOTE 알고리즘을 이용하여 Over-sampling한 결과 **Class의 비율을 1:1**로 맞추어 주었다.
 이후 class imbalance문제를 해결한 데이터로 다시 학습 및 테스트 결과는 다음과 같다.
+
 <img width="284" alt="result2-1" src="https://github.com/HaseongJung/Bankrunptcy_Classification/assets/107913513/3c3b5cdb-64a7-417d-b3c3-623cb23b056f">
+
 0: 파산X, 1: 파산O
+
 <img width="392" alt="result2-2" src="https://github.com/HaseongJung/Bankrunptcy_Classification/assets/107913513/ecd7217d-251f-4fcd-a83d-aebb926c6dfb">
 
 - 1에 대한 precision: `0.67 → 0.15`
